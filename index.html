@@ -20,7 +20,7 @@
     <script>
         (async function () {
            const url = 'https://uploadimagewebapp.blob.core.windows.net';
-           const sasKey = 'sv=2021-08-06&se=2022-09-20T11%3A04%3A36Z&sr=c&sp=c&sig=VrrbheoncdcNo2HdfjUZVLXC5wh7qIICn6DoFdUNlwA%3D';
+           const sasKey = 'sv=2021-08-06&se=2022-09-21T09%3A01%3A09Z&sr=c&sp=c&sig=p1roGdtgFUuz5IfK1QsGff56ZoSs9PNqvHxax9BdHlQ%3D';
             const {url1, sasKey1} = (await fetch("/api/credentials")).json();
             document.querySelector('#name').textContent = `SAS Key: ${sasKey}` + "\n" + `URL: ${url}`;
             // const {url, sasKey} = {'https://uploadimagewebapp.blob.core.windows.net','sv=2021-08-06&se=2022-09-20T11%3A04%3A36Z&sr=c&sp=c&sig=VrrbheoncdcNo2HdfjUZVLXC5wh7qIICn6DoFdUNlwA%3D'};
