@@ -16,8 +16,6 @@
 <pre id="cameraid">image url</pre>
   </div>
 </section> 
-<form action="fileupload.php" enctype="multipart/form-data" method="post"><label class="custom-uploader" for="file">Upload Your File</label> <input id="file" accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" name="fileToUpload" type="file" /> <button class="btn btn-success" name="submit" type="submit"> Upload File </button></form>
-
   <section class="section">
     <div class="container">
       <h1 class="title">Loading SASKey from the API: </h1>
@@ -40,7 +38,7 @@
             // document.querySelector('#name').textContent = `SAS Key: sv=2021-08-06&se=2022-09-20T11%3A04%3A36Z&sr=c&sp=c&sig=VrrbheoncdcNo2HdfjUZVLXC5wh7qIICn6DoFdUNlwA%3D` + "\n" + `URL: https://uploadimagewebapp.blob.core.windows.net`;
             function uploadFile() {
                 const file = document.getElementById('image').files[0];
-                blobUpload(file, url, 'images', sasKey);
+                blobUpload(filename, file, url, 'images', sasKey);
                 
             };
             const fileInput = document.getElementById('image');
