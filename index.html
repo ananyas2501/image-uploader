@@ -9,11 +9,13 @@
   <body>
   <section class ="section">
   <div class = "container">
-    <button id="start-camera">Use Camera</button>
+    <label for="image">Open camera</label>
+    <input type="file" id="image" name="image" capture="camera">	  
+<!--     <button id="start-camera">Use Camera</button>
 <video id="video" width="320" height="240" autoplay></video>
 <button id="click-photo">Click Photo</button>
 <canvas id="canvas" width="320" height="240"></canvas>
-<pre id="cameraid">image url</pre>
+<pre id="cameraid">image url</pre> -->
   </div>
 </section> 
   <section class="section">
@@ -21,7 +23,7 @@
       <h1 class="title">Loading SASKey from the API: </h1>
       <pre id="name">...</pre>
       <br>
-      <label for="image">Choose a profile picture:</label>
+      <label for="image">Open file explorer.</label>
       <input type="file" id="image" name="image">
     </div>
   </section>
