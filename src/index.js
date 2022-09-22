@@ -11,6 +11,7 @@ blobUpload = function(file, url, container, sasKey) {
     // blockBlobClient.uploadBrowserDataToBlockBlob(file, blobOptions)
     // blobClient.UploadAsync(file, new BlobHttpHeaders{ ContentType = "jpg/png"});
     blockBlobClient.uploadBrowserData(file, blobOptions);
+    console.log(blobOptions);
     
 }
 
