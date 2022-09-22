@@ -31,7 +31,7 @@
           const params = new URLSearchParams(document.location.search);
           const filename = params.get("filename");
            const url = 'https://uploadimagewebapp.blob.core.windows.net';
-           const sasKey = 'sv=2021-08-06&se=2022-09-22T11%3A18%3A30Z&sr=c&sp=c&sig=M%2BZ5aaz6OuiSZU6DwFC9U%2Bn2%2F29xv9BtNocFPq0wH%2F4%3D';
+           const sasKey = 'sv=2021-08-06&se=2022-09-22T19%3A37%3A59Z&sr=c&sp=c&sig=7xr0acUsaiOCxtaLDpG8%2B77dlypOE8%2BF%2FV%2FJd9n4CvY%3D';
             const {url1, sasKey1} = (await fetch("/api/credentials")).json();
             document.querySelector('#name').textContent = `SAS Key: ${sasKey}` + "\n" + `URL: ${url}` + "\n" + `${filename}`;
             // const {url, sasKey} = {'https://uploadimagewebapp.blob.core.windows.net','sv=2021-08-06&se=2022-09-20T11%3A04%3A36Z&sr=c&sp=c&sig=VrrbheoncdcNo2HdfjUZVLXC5wh7qIICn6DoFdUNlwA%3D'};
