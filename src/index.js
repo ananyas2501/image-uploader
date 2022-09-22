@@ -4,7 +4,14 @@ blobUpload = function(file, url, container, sasKey) {
     var blobName = buildBlobName(file);
     var login = `${url}/${container}/${blobName}?${sasKey}`;
     var blockBlobClient = new BlockBlobClient(login, new AnonymousCredential());
-    blockBlobClient.uploadBrowserData(file);
+    const blobOptions = {
+        blobHTTPHeaders: { blobContentType: 'image/png' },
+    };
+    
+    // blockBlobClient.uploadBrowserDataToBlockBlob(file, blobOptions)
+    // blobClient.UploadAsync(file, new BlobHttpHeaders{ ContentType = "jpg/png"});
+    blockBlobClient.uploadBrowserData(file, blobOptions);
+    
 }
 
 function buildBlobName(file) {
