@@ -14,7 +14,7 @@ blobUpload = function(filename, file, url, container, sasKey) {
     console.log(blobOptions);
     
 }
-
+// buildblobname
 function buildBlobName(filename, file) {
     var ext = file.name.substring(file.name.lastIndexOf('.'));
     return filename + ext;
