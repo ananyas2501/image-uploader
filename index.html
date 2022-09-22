@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
   </head>
   <body>
+  <section class ="section">
+  <div class = "container">
+    <button id="start-camera">Use Camera</button>
+<video id="video" width="320" height="240" autoplay></video>
+<button id="click-photo">Click Photo</button>
+<canvas id="canvas" width="320" height="240"></canvas>
+<pre id="cameraid">image url</pre>
+  </div>
+</section> 
+
   <section class="section">
     <div class="container">
       <h1 class="title">Loading SASKey from the API: </h1>
@@ -19,19 +29,43 @@
   <script src="./dist/main.js" type="text/javascript"></script>
     <script>
         (async function () {
+          const params = new URLSearchParams(document.location.search);
+          const filename = params.get("filename");
            const url = 'https://uploadimagewebapp.blob.core.windows.net';
-           const sasKey = 'sv=2021-08-06&se=2022-09-21T09%3A01%3A09Z&sr=c&sp=c&sig=p1roGdtgFUuz5IfK1QsGff56ZoSs9PNqvHxax9BdHlQ%3D';
+           const sasKey = 'sv=2021-08-06&se=2022-09-22T07%3A01%3A28Z&sr=c&sp=c&sig=r%2FipVWS6142FT%2FTw3BEm88g2q370SRSRSpthz1x98jY%3D';
             const {url1, sasKey1} = (await fetch("/api/credentials")).json();
-            document.querySelector('#name').textContent = `SAS Key: ${sasKey}` + "\n" + `URL: ${url}`;
+            document.querySelector('#name').textContent = `SAS Key: ${sasKey}` + "\n" + `URL: ${url}` + "\n" + `${filename}`;
             // const {url, sasKey} = {'https://uploadimagewebapp.blob.core.windows.net','sv=2021-08-06&se=2022-09-20T11%3A04%3A36Z&sr=c&sp=c&sig=VrrbheoncdcNo2HdfjUZVLXC5wh7qIICn6DoFdUNlwA%3D'};
             // document.querySelector('#name').textContent = `SAS Key: sv=2021-08-06&se=2022-09-20T11%3A04%3A36Z&sr=c&sp=c&sig=VrrbheoncdcNo2HdfjUZVLXC5wh7qIICn6DoFdUNlwA%3D` + "\n" + `URL: https://uploadimagewebapp.blob.core.windows.net`;
             function uploadFile() {
                 const file = document.getElementById('image').files[0];
                 blobUpload(file, url, 'images', sasKey);
+                
             };
             const fileInput = document.getElementById('image');
             fileInput.addEventListener("change", uploadFile);
         }())
+    </script>
+    <script>
+      let camera_button = document.querySelector("#start-camera");
+let video = document.querySelector("#video");
+let click_button = document.querySelector("#click-photo");
+let canvas = document.querySelector("#canvas");
+
+camera_button.addEventListener('click', async function() {
+   	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+	video.srcObject = stream;
+
+});
+
+click_button.addEventListener('click', function() {
+   	canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+   	let image_data_url = canvas.toDataURL('image/jpeg');
+
+   	// data url of the image
+   	console.log(image_data_url);
+     document.querySelector('#cameraid').textContent = image_data_url;
+});
     </script>
   </body>
 </html>
