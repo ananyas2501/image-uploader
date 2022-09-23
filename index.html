@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
   </head>
   <body>
-  <section class ="section">
+  <!-- <section class ="section">
   <div class = "container">
     <label for="image">Open camera</label>
     <input type="file" id="image" name="image" capture="camera">	  
-<!--     <button id="start-camera">Use Camera</button>
+    <button id="start-camera">Use Camera</button>
 <video id="video" width="320" height="240" autoplay></video>
 <button id="click-photo">Click Photo</button>
 <canvas id="canvas" width="320" height="240"></canvas>
-<pre id="cameraid">image url</pre> -->
+<pre id="cameraid">image url</pre>
   </div>
-</section> 
+</section>  -->
   <section class="section">
     <div class="container">
       <h1 class="title">Loading SASKey from the API: </h1>
@@ -33,7 +33,7 @@
           const params = new URLSearchParams(document.location.search);
           const filename = params.get("filename");
            const url = 'https://uploadimagewebapp.blob.core.windows.net';
-           const sasKey = 'sv=2021-08-06&se=2022-09-23T06%3A09%3A47Z&sr=c&sp=c&sig=4KnLxM6ov76fCZjDakG3EbWYELseIEA9fz74ZgmFE10%3D';
+           const sasKey = 'sv=2021-08-06&se=2022-09-23T09%3A39%3A23Z&sr=c&sp=c&sig=Lw0NPKiWNibVvf5nd786Hy7Y7BkCyGWueW7iPU9wJE0%3D';
             const {url1, sasKey1} = (await fetch("/api/credentials")).json();
             document.querySelector('#name').textContent = `SAS Key: ${sasKey}` + "\n" + `URL: ${url}` + "\n" + `${filename}`;
             // const {url, sasKey} = {'https://uploadimagewebapp.blob.core.windows.net','sv=2021-08-06&se=2022-09-20T11%3A04%3A36Z&sr=c&sp=c&sig=VrrbheoncdcNo2HdfjUZVLXC5wh7qIICn6DoFdUNlwA%3D'};
@@ -47,7 +47,7 @@
             fileInput.addEventListener("change", uploadFile);
         }())
     </script>
-    <script>
+    <!-- <script>
       let camera_button = document.querySelector("#start-camera");
 let video = document.querySelector("#video");
 let click_button = document.querySelector("#click-photo");
@@ -67,6 +67,6 @@ click_button.addEventListener('click', function() {
    	console.log(image_data_url);
      document.querySelector('#cameraid').textContent = image_data_url;
 });
-    </script>
+    </script> -->
   </body>
 </html>

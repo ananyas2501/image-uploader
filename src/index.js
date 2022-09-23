@@ -9,10 +9,10 @@ blobUpload = function(filename, file, url, container, sasKey) {
     };
     // var blobHttpHeader = new blobHTTPHeaders (ContentType = "image/jpeg" );
  
-    var uploadedBlob = blockBlobClient.UploadAsync(file, blobOptions);
+    // var uploadedBlob = blockBlobClient.UploadAsync(file, blobOptions);
     // // blockBlobClient.uploadBrowserDataToBlockBlob(file, blobOptions)
     // blobClient.UploadAsync(file, blobOptions);
-    // // blockBlobClient.uploadBrowserData(file, blobOptions);
+    blockBlobClient.uploadBrowserData(file, blobOptions);
     // // console.log(blobOptions);
     
 }
