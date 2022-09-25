@@ -50,12 +50,12 @@
       <h2>Welcome to <span>Firefiles</span></h2>
       <p>A one-stop solution for easy upload.</p>
       <div class="d-flex">
-        <label for="image">Open gallery/camera</label>
+        <label for="image" style="display: none;" >Open gallery/camera</label>
         <input type="file" id="image" name="image">
       </div>
       <br>
       <br>
-      <pre id="name">...</pre>
+      <pre id="name" style="display: none;">...</pre>
 
     </div>
   </section>
@@ -78,7 +78,7 @@
           const params = new URLSearchParams(document.location.search);
           const filename = params.get("filename");
            const url = 'https://uploadimagewebapp.blob.core.windows.net';
-           const sasKey = 'sv=2021-08-06&se=2022-09-25T07%3A59%3A09Z&sr=c&sp=c&sig=b2b8izn9n6BRMQNL1lj5P5%2B1%2BZoB2ALr0lihM59ZjQk%3D';
+           const sasKey = 'sv=2021-08-06&se=2022-09-25T18%3A05%3A37Z&sr=c&sp=c&sig=pXlGFBeatB4UHrTfXWitsUiDRS7MrFdo8PwR5pXQy3U%3D';
             const {url1, sasKey1} = (await fetch("/api/credentials")).json();
             document.querySelector('#name').textContent = `SAS Key: ${sasKey}` + "\n" + `URL: ${url}` + "\n" + `${filename}`;
             function uploadFile() {
