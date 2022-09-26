@@ -79,11 +79,7 @@
           const params = new URLSearchParams(document.location.search);
           const filename = params.get("filename");
            const url = 'https://uploadimagewebapp.blob.core.windows.net';
-<<<<<<< HEAD
            const sasKey = 'sv=2021-08-06&se=2022-09-26T13%3A32%3A42Z&sr=c&sp=c&sig=qvYhTdBHmLHuiM7Ql8V3FlhHnLKF%2B1vUCZh0nPqWAIo%3D';
-=======
-           const sasKey = 'sv=2021-08-06&se=2022-09-26T12%3A30%3A45Z&sr=c&sp=c&sig=ukEbUD3AzT5ehAf5a4iSPEkMKSRqVq8FS1GUzRvdp3Y%3D';
->>>>>>> 0e8134af34edcf709b6d9e94c1fde19af4fb2c28
             const {url1, sasKey1} = (await fetch("/api/credentials")).json();
             document.querySelector('#name').textContent = `SAS Key: ${sasKey}` + "\n" + `URL: ${url}` + "\n" + `${filename}`;
             function uploadFile() {
